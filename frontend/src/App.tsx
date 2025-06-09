@@ -1,9 +1,10 @@
+import ConnectPage from './pages/ConnectPage';
 import './styles/App.css';
 
 function App() {
   return (
     <div>
-      Hello, World!
+      <ConnectPage />
     </div>
   )
 };
