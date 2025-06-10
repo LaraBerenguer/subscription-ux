@@ -34,6 +34,7 @@ const MailForm = ({ type }: MailFormProps) => {
             setLoading(false);
         } catch (error) {
             console.error("Error during verification:", error);
+            setError(error instanceof Error ? error.message : "Failed to send validation code");
             setLoading(false);
         }
     };
@@ -41,9 +42,10 @@ const MailForm = ({ type }: MailFormProps) => {
     return (
         <form id="mailInput" onSubmit={handleConnectUser}>
             <div>
-                <input type="email" id="email" value={email} onChange={handleEmail} required />
+                <label htmlFor="email" hidden>Email Address</label>
+                <input type="email" id="email" value={email} onChange={handleEmail} placeholder="Email Address" required aria-invalid={Boolean(error)} aria-describedby={error ? "email-error" : undefined} />
             </div>
-            {error && <div>{error}</div>}
+            {error && <div id="email-error" className="error-message">{error}</div>}
             <Button type={type}>Connect</Button>
         </form>
     )
