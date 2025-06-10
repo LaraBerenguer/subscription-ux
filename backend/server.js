@@ -8,8 +8,24 @@ let emailMap = {};
 // sendResponse
 // -----------------------------------------------------------------------------
 function sendResponse(res, statusCode, data, contentType = 'application/json') {
-  res.writeHead(statusCode, { 'Content-Type': contentType });
+  res.writeHead(statusCode, {
+    'Content-Type': contentType,
+    //Added CORS
+    'Access-Control-Allow-Origin': 'http://localhost:5173',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type'
+  });
   res.end(JSON.stringify(data));
+}
+
+//CORS preflight
+function handleOptionsRequest(res) {
+  res.writeHead(204, {
+    'Access-Control-Allow-Origin': 'http://localhost:5173',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type'
+  });
+  res.end();
 }
 
 // -----------------------------------------------------------------------------
@@ -49,7 +65,7 @@ function handleValidateEmailCode(req, res, body) {
     if (!email || !code) {
       return sendResponse(res, 400, { error: 'Email and code are required' });
     }
-    console.log (emailMap)
+    console.log(emailMap)
     const isValid = (emailMap[email]?.code?.toString() || null) === code.toString();
 
     console.log(`Validating Code: code=${code}, email=${email}: ${isValid ? 'valid' : 'invalid'}`);
@@ -127,6 +143,11 @@ const server = http.createServer((req, res) => {
   const method = req.method;
   const path = parsedUrl.pathname;
   const query = parsedUrl.query;
+
+  // CORS preflight requests
+  if (method === 'OPTIONS') {
+    return handleOptionsRequest(res);
+  }
 
   let rawBody = '';
   req.on('data', chunk => {
