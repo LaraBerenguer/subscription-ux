@@ -1,6 +1,7 @@
-import Button from "../components/Button/Button";
+import MailForm from "../components/Forms/MailForm";
 import List from "../components/List/List";
-
+//import Form from "../components/Button/Button";
+//import CheckOffers from "../components/Button/Button";
 
 const ConnectPage = () => {
     const handleConnectUser = () => {
@@ -11,8 +12,8 @@ const ConnectPage = () => {
         <main>
             <List />
             <h1>Connect your account</h1>
-            <h2>...and unlock your benefits!</h2>            
-            <Button onClick={handleConnectUser}>Connect</Button>
+            <h2>...and unlock your benefits!</h2>
+            <MailForm onClick={handleConnectUser} type="submit"/>
 
         </main>
     );
