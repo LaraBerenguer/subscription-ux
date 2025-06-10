@@ -1,43 +1,50 @@
 import Button from "../Button/Button";
-import { getValidationCode } from "../../services/email-api";
 import { useEmailContext } from "../../context/EmailContext";
+import { useNavigate } from "react-router-dom";
 
 interface MailFormProps {
     type: "button" | "submit";
 }
 
 const MailForm = ({ type }: MailFormProps) => {
-    const {email, setEmail, setError, setLoading, code, setCode} = useEmailContext();
+    const { email, setEmail, error, setError, setLoading, sendVerificationCode } = useEmailContext();
+    const navigate = useNavigate();
 
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
+        console.log("email: ", email)
     };
 
-    const handleConnectUser = async () => {
+    const handleConnectUser = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
         setLoading(true);
         setError(null);
 
-        if (!email) { return }; //to do manage error
+        if (!email) {
+            setError("Please enter an email address");
+            setLoading(false);
+            return;
+        };
 
         try {
-            const newCode = await getValidationCode(email);
-            setCode(newCode);
+            const isCodeSent = await sendVerificationCode(email);
+            if (isCodeSent) {
+                navigate("/verify");
+            }
             setLoading(false);
-            return code;
         } catch (error) {
-            const errorMessage = error instanceof Error ? error : new Error("Failed to send validation code");
-            setError(errorMessage.message);
+            console.error("Error during verification:", error);
             setLoading(false);
-            return null;
         }
     };
 
     return (
-        <form id="mailInput">
+        <form id="mailInput" onSubmit={handleConnectUser}>
             <div>
                 <input type="email" id="email" value={email} onChange={handleEmail} required />
             </div>
-            <Button type={type} onClick={handleConnectUser}>Connect</Button>
+            {error && <div>{error}</div>}
+            <Button type={type}>Connect</Button>
         </form>
     )
 };
