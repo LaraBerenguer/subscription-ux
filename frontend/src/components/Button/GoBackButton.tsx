@@ -2,11 +2,11 @@ import type { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface GoBackButtonProps {
-    children?: ReactNode;
-    className?: string;
+    children?: ReactNode;    
+    variant: "rounded" | "transparent";
 }
 
-const GoBackButton = ({ children, className }: GoBackButtonProps) => {
+const GoBackButton = ({ children, variant }: GoBackButtonProps) => {
     const navigate = useNavigate();
 
     const handleGoBack = () => {
@@ -14,7 +14,7 @@ const GoBackButton = ({ children, className }: GoBackButtonProps) => {
     };
 
     return (
-        <button className={className} onClick={handleGoBack}>
+        <button className={`go-back-button ${variant}`} onClick={handleGoBack}>
             {children}
         </button>
     );
