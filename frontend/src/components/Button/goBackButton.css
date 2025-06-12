@@ -1,0 +1,50 @@
+.go-back-button {
+    font-family: "Baloo 2";
+    font-weight: 100;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+    padding: 8px;    
+}
+
+.go-back-button.rounded {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+}
+
+.go-back-button.rounded:hover {
+    background-color: #fff;
+}
+
+.go-back-button.transparent {
+    display: inline-flex;
+    padding: 8px 16px;
+    border: 1px solid var(--primary);
+    border-radius: 6px;
+    background-color: transparent;
+    font-size: 14px;
+    color: var(--primary);
+    white-space: nowrap;
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+}
+
+.go-back-button.transparent:hover {
+    color: #fff;
+}
+
+.go-back-button--left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem
+}

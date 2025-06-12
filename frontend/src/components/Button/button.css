@@ -8,3 +8,7 @@ button {
     border: 1px transparent;
     border-radius: 8px;
 }
+
+button.hover {
+    color: #fff
+}
