@@ -3,11 +3,14 @@ import { createRoot } from 'react-dom/client'
 import './styles/index.css'
 import App from './App.tsx'
 import { EmailProvider } from './context/EmailContext.tsx'
+import { ProductProvider } from './context/ProductsContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <EmailProvider>
-      <App />
-    </EmailProvider>
+    <ProductProvider>
+      <EmailProvider>
+        <App />
+      </EmailProvider>
+    </ProductProvider>
   </StrictMode>,
 )

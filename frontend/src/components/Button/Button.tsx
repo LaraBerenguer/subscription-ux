@@ -2,14 +2,14 @@ import type { ReactNode } from "react";
 import "./button.css";
 
 interface ButtonProps {
-    //onClick: () => void;
+    onClick?: () => void;
     children: ReactNode;
     type: "button" | "submit";
 }
 
-const Button = ({ children, type }: ButtonProps) => {
+const Button = ({ children, type, onClick }: ButtonProps) => {
     return (
-        <button type={type}>
+        <button type={type} onClick={onClick}>
             {children}
         </button>
     );
