@@ -18,34 +18,27 @@ const PriceCard = ({ plan, title, price, currency, trialDays }: PriceCardProps) 
     };
 
     return (
-        <div className="card-main">
-            <div className={`card--card ${isChecked ? 'selected' : ''}`}>
-                <div className="card--title">
-                    <input
-                        type="checkbox"
-                        checked={isChecked}
-                        onChange={handleCheck}
-                        className="card--checkbox"
-                    />
-                    <h2 >{title}</h2>
-                </div>
-                <div className="card--price-card">
-                    <div className="card--price-wrapper">
-                        <div className="card--price">
-                            <p className="card--price-tag">{currency === "USD" ? "$" : ""}</p>
-                            <p className="card--price-price">{price} </p>
-                            <p className="card--price-time">{plan === "year" ? " /year" : " /month"}</p>
-                        </div>
-                        <p className="card--price-billed"><small>Billed anually/monthly</small></p>
-                    </div>
-                    <div className="card--trial-days">
-                        <small>{trialDays}-day free trial</small>
-                    </div>
-                </div>
+        <div className={`card ${isChecked ? 'selected' : ''}`}>
+            <div className="card--header">
+                <input
+                    type="checkbox"
+                    checked={isChecked}
+                    onChange={handleCheck}
+                    className="card--checkbox"
+                />
+                <h2 >{title}</h2>
             </div>
+            <div className="card--body">
+                <div className="card--price">
+                    <span className="card--price-tag">{currency === "USD" ? "$" : ""}</span>
+                    <span className="card--price-value">{price} </span>
+                    <span className="card--price-period">{plan === "year" ? " /year" : " /month"}</span>
+                </div>
+                <p className="card--billed">Billed {plan === "year" ? "annually" : "monthly"}</p>
+            </div>
+            <p className="card--trial"><small>{trialDays}-day free trial</small></p>
         </div>
     )
-
 };
 
 export default PriceCard;

@@ -25,23 +25,21 @@ const PlansPage = () => {
             <section className="plans-page--cards">
                 {products &&
                     Object.entries(products).map(([key, value]) => (
-                        <div className={`plans-page--card`}>
-                            <PriceCard
-                                key={key}
-                                plan={key}
-                                title={key === "year" ? "Annual" : "Monthly"}
-                                price={value.price}
-                                currency={value.currency}
-                                trialDays={value.trial_days}
-                            />
-                        </div>
+                        <PriceCard
+                            key={key}
+                            plan={key}
+                            title={key === "year" ? "Annual" : "Monthly"}
+                            price={value.price}
+                            currency={value.currency}
+                            trialDays={value.trial_days}
+                        />
                     ))}
             </section>
             <section className="plans-page--cancel">
                 <span><small>Cancel anytime.</small></span>
             </section>
             <section className="plans-page--button">
-                {error && <span>{error}</span>}
+                {error && <span className="plans-page--error">{error}</span>}
                 <Button type="button" onClick={handleStartTrial}>Start my free trial!</Button>
             </section>
             <section className="plans-page--privacy">
