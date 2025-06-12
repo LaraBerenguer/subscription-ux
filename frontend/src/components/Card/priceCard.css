@@ -1,0 +1,64 @@
+.card-main {
+    background: linear-gradient(#3c2c5d, #47376e);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 1.25rem auto;
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    width: 90%;
+    aspect-ratio: 2 / 1;
+    box-sizing: border-box;
+}
+
+.card--card {
+    flex: 1;    
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    border-radius: 0px 0px 8px 8px;
+    height: 100%;
+}
+
+.card--title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px 8px 0px 0px;
+    background-color: #5b458e;
+    box-sizing: border-box;
+    position: relative;
+    height: 4rem;
+    font-size: larger;
+}
+
+.card--checkbox {
+    position: absolute;
+    left: 15px;
+    width: 1rem;
+    height: 1rem;
+    accent-color:var(--green);
+    color: #fff;
+    margin: 1.5rem;
+}
+
+.card--price {
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+    font-weight: 700;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.card--price-billed{
+    
+
+}
+
+.card--trial-days{
+    color: var(--secondary);
+    background-color: #2a2041;
+    box-sizing: border-box;
+    border-radius: 0px 0px 8px 8px;
+}

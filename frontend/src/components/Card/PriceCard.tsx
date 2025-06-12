@@ -1,4 +1,5 @@
 import { useProductContext } from "../../context/ProductsContext";
+import "./priceCard.css";
 
 interface PriceCardProps {
     plan: string;
@@ -18,7 +19,7 @@ const PriceCard = ({ plan, title, price, currency, trialDays }: PriceCardProps) 
 
     return (
         <div className="card-main">
-            <div className={`card ${isChecked ? 'selected' : ''}`}>
+            <div className={`card--card ${isChecked ? 'selected' : ''}`}>
                 <div className="card--title">
                     <input
                         type="checkbox"
@@ -30,11 +31,12 @@ const PriceCard = ({ plan, title, price, currency, trialDays }: PriceCardProps) 
                 </div>
                 <div className="card--price-card">
                     <div className="card--price-wrapper">
-                        <p className="card--price-tag">{currency}</p>
-                        <p className="card--price-wrapper-price">
-                            {price}
-                            <small>Billed anually/monthly</small>
-                        </p>
+                        <div className="card--price">
+                            <p className="card--price-tag">{currency === "USD" ? "$" : ""}</p>
+                            <p className="card--price-price">{price} </p>
+                            <p className="card--price-time">{plan === "year" ? " /year" : " /month"}</p>
+                        </div>
+                        <p className="card--price-billed"><small>Billed anually/monthly</small></p>
                     </div>
                     <div className="card--trial-days">
                         <small>{trialDays}-day free trial</small>

@@ -1,13 +1,14 @@
 .plans-page--title {
     font-size: xx-large;
     font-weight: 800;
+    text-align: center;
 }
 
 .plans-page--cards {
-    display: flex;
+    display: flex;    
     text-align: center;
 }
 
 .plans-page--card {
-    flex: 1
+    flex: 1;    
 };

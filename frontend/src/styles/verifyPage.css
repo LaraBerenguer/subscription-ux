@@ -39,5 +39,5 @@
 }
 
 .verify-page--title p {
-  color: #a3d89e;
+  color: var(--green);
 }
