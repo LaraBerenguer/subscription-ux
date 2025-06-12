@@ -1,0 +1,33 @@
+.plans-page--title {
+    font-size: xx-large;
+    font-weight: 800;
+    text-align: center;
+    margin: 2rem;
+}
+
+.plans-page--cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.plans-page--cards>.card {
+    flex: 1 1 45%;
+    min-width: 280px;
+    max-width: 400px;
+}
+
+.plans-page--error {
+    color: var(--error);
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem;
+}
+
+.plans-page--cancel {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    color: var(--primary);
+}

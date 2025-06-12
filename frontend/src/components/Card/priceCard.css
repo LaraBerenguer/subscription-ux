@@ -1,0 +1,78 @@
+.card {
+    background-color: #3c2c5d;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    aspect-ratio: 2 / 1;
+    width: 100%;
+    margin: 1rem;    
+    color: #fff;
+}
+
+.card.selected {
+  position: relative;
+  z-index: 0;
+}
+
+.card.selected::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  z-index: -1;
+  border-radius: 10px;
+  background: linear-gradient(to right, var(--secondary), orange, pink, #54b6d9);
+}
+
+.card--header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+    background-color: #5b458e;
+    padding: 0.75rem 1rem;
+    position: relative;
+    font-size: larger;
+    width: 100%;
+}
+
+.card--checkbox {
+    position: absolute;
+    left: 15px;
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--green);
+}
+
+.card--body {
+    background-color: #3c2c5d;
+    width: 100%;
+    padding-bottom: 1.5rem;
+}
+
+.card--price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    font-weight: 700;
+    gap: 0.25rem;
+    margin-top: 1rem;
+}
+
+.card--billed {
+    background: #3c2c5d;
+    text-align: center;
+    font-size: 1.25rem;    
+}
+
+.card--trial {
+    text-align: center;
+    background-color: #2a2041;
+    border-radius: 0 0 8px 8px;
+    padding: 0.5rem;   
+    color: var(--secondary);
+    font-size: 1.25rem;
+    width: 100%;
+}
