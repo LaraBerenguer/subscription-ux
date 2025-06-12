@@ -1,8 +1,11 @@
 import type { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
+import "./goBackButton.css";
+import ArrowIcon from "../Arrow/ArrowIcon";
+import FullArrowIcon from "../Arrow/FullArrowIcon";
 
 interface GoBackButtonProps {
-    children?: ReactNode;    
+    children?: ReactNode;
     variant: "rounded" | "transparent";
 }
 
@@ -15,7 +18,7 @@ const GoBackButton = ({ children, variant }: GoBackButtonProps) => {
 
     return (
         <button className={`go-back-button ${variant}`} onClick={handleGoBack}>
-            {children}
+            {children ? children : variant === "rounded" ? <ArrowIcon /> : <div className="go-back-button--left"><FullArrowIcon />Modify Email</div>}
         </button>
     );
 };

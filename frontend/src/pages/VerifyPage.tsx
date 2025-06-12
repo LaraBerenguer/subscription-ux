@@ -1,4 +1,3 @@
-import GoBackButton from "../components/Button/GoBackButton";
 import CodeInput from "../components/Forms/CodeInput";
 import List from "../components/List/List";
 import { useEmailContext } from "../context/EmailContext";
@@ -7,10 +6,7 @@ import "../styles/verifyPage.css";
 const VerifyPage = () => {
     const { email } = useEmailContext();
     return (
-        <main className="verify-page">
-            <div className="go-back-button">
-                <GoBackButton variant="transparent">Modify Mail</GoBackButton>
-            </div>
+        <main className="verify-page">            
             <div className="verify-page--content">
                 <section className="verify-page--list">
                     <List />
