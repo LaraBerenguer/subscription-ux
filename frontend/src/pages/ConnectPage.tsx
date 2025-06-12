@@ -6,7 +6,7 @@ import "../styles/connectPage.css";
 
 const ConnectPage = () => {
     return (
-        <main>
+        <main className="connect-page">
             <section className="list-section">
                 <List />
                 {/*Terms and conditions*/}
