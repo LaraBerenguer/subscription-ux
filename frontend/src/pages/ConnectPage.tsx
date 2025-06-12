@@ -7,16 +7,16 @@ import "../styles/connectPage.css";
 const ConnectPage = () => {
     return (
         <main className="connect-page">
-            <section className="list-section">
+            <section className="connect-page--list">
                 <List />
                 {/*Terms and conditions*/}
             </section>
-            <section className="form-section">
-                <section className="title-container">
+            <section className="connect-page--form">
+                <section className="connect-page--title">
                     <h1>Connect your account</h1>
                     <h2>...and unlock your benefits!</h2>
                 </section>
-                <div className="form-container">
+                <div className="connect-page--input">
                     <MailForm type="submit" />
                 </div>
             </section>
