@@ -27,7 +27,7 @@ const CodeInput = () => {
     const handleVerify = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
-        setError(null);        
+        setError(null);
 
         try {
             const user: UserInfo = { "email": email, "code": code };
@@ -56,11 +56,14 @@ const CodeInput = () => {
                 maxLength={CODE_LENGTH}
                 className="pin-hidden-input"
             />
-            {Array.from({ length: CODE_LENGTH }).map((_, i) => (
-                <div key={i} className="pin-box">
-                    {code[i] || ""}
-                </div>
-            ))}
+            <div className="pin-box-wrapper">
+                {Array.from({ length: CODE_LENGTH }).map((_, i) => (
+                    <div key={i} className="pin-box">
+                        {code[i] || ""}
+                    </div>
+                ))}
+            </div>
+
             {error && <div id="email-error" className="error-message">{error}</div>}
             <div className="pin-button">
                 <Button type="submit">Verify</Button>

@@ -1,0 +1,14 @@
+input {
+    font-family: "Baloo 2";
+    font-size: large;
+    padding: 1rem;
+    width: 100%;
+    border: 1px transparent;
+    border-radius: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}

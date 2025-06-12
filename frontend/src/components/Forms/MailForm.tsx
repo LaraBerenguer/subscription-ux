@@ -1,6 +1,7 @@
 import Button from "../Button/Button";
 import { useEmailContext } from "../../context/EmailContext";
 import { useNavigate } from "react-router-dom";
+import "./mailForm.css";
 
 interface MailFormProps {
     type: "button" | "submit";
@@ -45,6 +46,7 @@ const MailForm = ({ type }: MailFormProps) => {
                 <label htmlFor="email" hidden>Email Address</label>
                 <input type="email" id="email" value={email} onChange={handleEmail} placeholder="Email Address" required aria-invalid={Boolean(error)} aria-describedby={error ? "email-error" : undefined} />
             </div>
+            {/*Check*/}
             {error && <div id="email-error" className="error-message">{error}</div>}
             <Button type={type}>Connect</Button>
         </form>

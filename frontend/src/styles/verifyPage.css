@@ -1,0 +1,43 @@
+.verify-page {
+    display: flex;
+    flex-direction: column;  
+    justify-content: space-between;     
+    width: 100%;
+    gap: 2rem;
+}
+
+.go-back-button{
+    max-width: 10rem;
+    font-size: small;
+}
+
+.verify-page--content {
+    display: flex;    
+    gap: 2rem;
+    align-items: center;  
+}
+
+.verify-page--list,
+.verify-page--form {
+  flex: 1;
+  padding: 1rem;
+}
+
+.verify-page--title {
+  margin-bottom: 2rem;
+  text-align: center;   
+}
+
+.verify-page--title h1 {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.verify-page--title h2 {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.verify-page--title p {
+  color: #a3d89e;
+}
