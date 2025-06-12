@@ -1,6 +1,7 @@
 import Button from "../Button/Button";
 import { useEmailContext } from "../../context/EmailContext";
 import { useNavigate } from "react-router-dom";
+import "./mailForm.css";
 
 interface MailFormProps {
     type: "button" | "submit";

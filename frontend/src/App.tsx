@@ -3,7 +3,7 @@ import ConnectPage from './pages/ConnectPage';
 import VerifyPage from './pages/VerifyPage';
 import PlansPage from './pages/PlansPage';
 import SuccessPage from './pages/SuccessPage';
-import './styles/App.css';
+//import './styles/App.css';
 
 function App() {
   return (

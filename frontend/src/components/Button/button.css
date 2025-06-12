@@ -1,0 +1,10 @@
+button {
+    font-family: "Baloo 2";
+    font-weight: 800;
+    font-size: large;
+    padding: 1rem;    
+    width: 100%;
+    background-color: var(--primary);
+    border: 1px transparent;
+    border-radius: 8px;
+}

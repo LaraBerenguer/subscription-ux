@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import "./button.css";
 
 interface ButtonProps {
     //onClick: () => void;
