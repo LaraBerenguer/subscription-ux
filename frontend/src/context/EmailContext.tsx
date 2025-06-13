@@ -75,5 +75,10 @@ export const useEmailContext = () => {
     if (!context) {
         throw new Error('useEmailContext must be used within an EmailProvider');
     }
-    return context;
+
+    return {
+        ...context,
+        userId: context.userId as UserId,
+        isUserIdAvailable: !!context.userId
+    };
 };

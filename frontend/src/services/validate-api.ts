@@ -1,8 +1,7 @@
 import { API_URL, END_POINTS } from "../config";
 import type { UserId, UserInfo } from "../types/types";
 
-//get code
-export const validateEmail = async (user: UserInfo): Promise<{user_id: UserId}> => {
+export const validateEmail = async (user: UserInfo): Promise<UserId> => {
     try {
         const response = await fetch(`${API_URL}/${END_POINTS.email.validate}`, {
             method: "POST",

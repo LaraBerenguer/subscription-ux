@@ -31,11 +31,10 @@ const CodeInput = () => {
 
         try {
             const user: UserInfo = { "email": email, "code": code };
-            const response = await validateEmail(user);
-            const verifiedUserId: UserId = response.user_id;
+            const response:UserId = await validateEmail(user);            
 
-            if (verifiedUserId) {
-                setUserId(verifiedUserId);
+            if (response) {
+                setUserId(response);
                 navigate("/plans");
             }
             setLoading(false);
