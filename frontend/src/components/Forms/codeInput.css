@@ -12,24 +12,50 @@
     pointer-events: none;
 }
 
-.pin-box-wrapper{
+.pin-box-wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: center;  
-    gap: 1rem;  
+    justify-content: space-around;
+    gap: 1rem;
 }
 
 .pin-box {
+    --pin-box-size: 4rem;
     width: 100%;
-    max-width: 70px;
-    min-width: 50px;
-    height: 50px;
+    width: var(--pin-box-size);
+    height: var(--pin-box-size);
     border: 2px solid #ccc;
     font-size: 24px;
     text-align: center;
-    line-height: 50px;
+    line-height: var(--pin-box-size);
     border-radius: 8px;
     background: white;
     color: #000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+    color: var(--error);
+}
+
+@media (max-width: 768px) {
+    .pin-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .pin-box-wrapper {
+        order: 1;
+    }
+
+    .pin--button {
+        order: 2;
+        margin-top: 5rem;
+    }
+
+    .pin--resend-code {
+        order: 3;
+    }
+
 }

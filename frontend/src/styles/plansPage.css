@@ -2,7 +2,7 @@
     font-size: xx-large;
     font-weight: 800;
     text-align: center;
-    margin: 2rem;
+    margin: 4rem;
 }
 
 .plans-page--cards {
@@ -13,8 +13,8 @@
 }
 
 .plans-page--cards>.card {
-    flex: 1 1 45%;
-    min-width: 280px;
+    flex: 1 1 300px;
+   
     max-width: 400px;
 }
 
@@ -30,4 +30,17 @@
     justify-content: center;
     margin: 1rem;
     color: var(--primary);
+}
+
+.plans-page--title h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+@media (max-width: 887px) {    
+
+    .plans-page--button,
+    .plans-page--privacy {
+        margin-top: 5rem;
+    }
 }

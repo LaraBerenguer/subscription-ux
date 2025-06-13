@@ -6,22 +6,22 @@ import "../styles/verifyPage.css";
 const VerifyPage = () => {
     const { email } = useEmailContext();
     return (
-        <main className="verify-page">            
-            <div className="verify-page--content">
-                <section className="verify-page--list">
+        <main className="verify-page">
+            <section className="verify-page--list">
+                <div className="verify-page--benefits">
                     <List />
+                </div>
+            </section>
+            <section className="verify-page--form">
+                <section className="verify-page--title">
+                    <h1>Get Verified!</h1>
+                    <h2>Enter the one-time code we sent to:</h2>
+                    <p>{email}</p>
                 </section>
-                <section className="verify-page--form">
-                    <div className="verify-page--title">
-                        <h1>Get Verified!</h1>
-                        <h2>Enter the one-time code we sent to:</h2>
-                        <p>{email}</p>
-                    </div>
-                    <div className="verify-page--input">
-                        <CodeInput />
-                    </div>
-                </section>
-            </div>
+                <div className="verify-page--input">
+                    <CodeInput />
+                </div>
+            </section>
         </main>
     );
 };

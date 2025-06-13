@@ -1,31 +1,81 @@
 .connect-page {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
     width: 100%;
     gap: 2rem;
 }
 
 .connect-page--title {
-    margin-bottom: 4rem;
+    margin-bottom: 3.5rem;
 }
 
-.connect-page--form {
+.connect-page--form,
+.connect-page--list {
     flex: 1;
     text-align: center;
 }
 
 .connect-page--list {
-    flex: 1;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 3rem;
+}
+
+.connect-page--benefits {
+    margin-bottom: 2rem;
+}
+
+.connect-page--terms {
+    font-size: 0.85rem;
+    opacity: 0.8;
 }
 
 .connect-page--title h1 {
-    font-size: xx-large;
+    font-size: 2.5rem;
     font-weight: 800;
 }
 
 .connect-page--title h2 {
-    font-size: large;
+    font-size: 1.25rem;
     font-weight: 100;
+}
+
+@media (max-width: 768px) {    
+    .connect-page {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    /* to show the children elements */
+    .connect-page--list,
+    .connect-page--form {
+        display: contents;
+    }
+
+    .connect-page--benefits,
+    .connect-page--title,
+    .connect-page--input,
+    .connect-page--terms {
+        width: 100%;
+    }
+
+    .connect-page--title {
+        order: 1;
+    }
+
+    .connect-page--benefits {
+        order: 2;
+    }
+
+    .connect-page--input {
+        order: 3;
+    }
+
+    .connect-page--terms {
+        order: 4;
+    }    
 }

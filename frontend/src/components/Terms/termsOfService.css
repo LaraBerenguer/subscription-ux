@@ -1,0 +1,8 @@
+.terms-service {
+    font-size: 1rem;
+}
+
+a {
+    color: var(--blue);
+    text-decoration: none;
+}

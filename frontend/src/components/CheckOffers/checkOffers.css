@@ -1,0 +1,41 @@
+.offers-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    margin-top: 5rem;
+    font-size: larger;
+    font-weight: 100;
+}
+
+.offers-wrapper input[type="checkbox"] {
+    all: unset;    
+    margin-right: 0.5rem;
+    flex: 0 0 auto;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    height: 16px;
+    width: 16px;
+    background-color: transparent;
+    position: relative;
+}
+
+.offers-wrapper input[type="checkbox"]:checked {
+    background-color: transparent;
+}
+
+.offers-wrapper input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.offers-wrapper span {
+    flex: 0 1 auto;
+}

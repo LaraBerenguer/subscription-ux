@@ -1,0 +1,20 @@
+.resend-email {    
+    font-size: larger;
+    font-weight: 100;
+    margin-top: 5rem;
+}
+
+.resend-email--button {
+    font-family: "Baloo 2";
+    font-size: large;
+    color: var(--blue);
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin-left: 0.5rem;
+}
+
+.resend-mail--message {
+    color: var(--green);
+}

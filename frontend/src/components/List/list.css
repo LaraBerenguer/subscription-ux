@@ -1,0 +1,10 @@
+li {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   padding: 1.25rem;
+}
+
+.li--with-background {
+   background: linear-gradient(to right, #e252ff36, #34285088);
+}

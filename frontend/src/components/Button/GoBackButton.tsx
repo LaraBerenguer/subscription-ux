@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import "./goBackButton.css";
-import ArrowIcon from "../Arrow/ArrowIcon";
-import FullArrowIcon from "../Arrow/FullArrowIcon";
+import ArrowIcon from "../Icons/CaretIcon";
+import FullArrowIcon from "../Icons/ArrowIcon";
 
 interface GoBackButtonProps {
     children?: ReactNode;

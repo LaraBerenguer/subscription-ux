@@ -1,14 +1,21 @@
-button {
+.button-component {
     font-family: "Baloo 2";
     font-weight: 800;
     font-size: large;
-    padding: 1rem;    
+    padding: 1rem;
     width: 100%;
+    max-width: 550px;
     background-color: var(--primary);
     border: 1px transparent;
     border-radius: 8px;
 }
 
-button.hover {
+.button-component.hover {
     color: #fff
+}
+
+@media (max-width: 887px) {
+    .button-component {
+        max-width: 100%;
+    }
 }
