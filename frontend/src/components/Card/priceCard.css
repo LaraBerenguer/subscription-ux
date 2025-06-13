@@ -22,7 +22,7 @@
   inset: -3px;
   z-index: -1;
   border-radius: 10px;
-  background: linear-gradient(to right, var(--secondary), orange, pink, #54b6d9);
+  background: linear-gradient(to right, var(--secondary), orange, pink, var(--blue));
 }
 
 .card--header {

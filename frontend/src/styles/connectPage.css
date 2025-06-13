@@ -1,7 +1,7 @@
 .connect-page {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
     width: 100%;
     gap: 2rem;
 }
@@ -10,14 +10,26 @@
     margin-bottom: 3.5rem;
 }
 
-.connect-page--form {
+.connect-page--form, .connect-page--list {
     flex: 1;
     text-align: center;
 }
 
-.connect-page--list {
-    flex: 1;
-    padding: 2rem;
+.connect-page--list {    
+    padding: 2rem; 
+    display: flex;
+    flex-direction: column;
+    justify-content: end;    
+    gap: 3rem;  
+}
+
+.connect-page--benefits {
+    margin-bottom: 2rem;
+}
+
+.connect-page--terms {
+    font-size: 0.85rem;
+    opacity: 0.8;
 }
 
 .connect-page--title h1 {

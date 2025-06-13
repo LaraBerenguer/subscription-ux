@@ -1,15 +1,18 @@
 import MailForm from "../components/Forms/MailForm";
 import List from "../components/List/List";
+import TermsOfService from "../components/Terms/TermsOfService";
 import "../styles/connectPage.css";
-//import Form from "../components/Button/Button";
-//import CheckOffers from "../components/Button/Button";
 
 const ConnectPage = () => {
     return (
         <main className="connect-page">
             <section className="connect-page--list">
-                <List />
-                {/*Terms and conditions*/}
+                <div className="connect-page--benefits">
+                    <List />
+                </div>
+                <div className="connect-page--terms">
+                    <TermsOfService />
+                </div>
             </section>
             <section className="connect-page--form">
                 <section className="connect-page--title">
