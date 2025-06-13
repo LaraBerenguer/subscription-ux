@@ -9,9 +9,8 @@ import { useNavigate } from "react-router-dom";
 const CODE_LENGTH = 6;
 
 const CodeInput = () => {
-    const [code, setCode] = useState<string>("");
-    const [error, setError] = useState<string | null>("");
-    const { email, setUserId, setLoading } = useEmailContext();
+    const [code, setCode] = useState<string>("");    
+    const { email, setUserId, setLoading, error, setError } = useEmailContext();
     const inputRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
 

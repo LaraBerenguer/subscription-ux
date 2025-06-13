@@ -24,7 +24,14 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
     useEffect(() => {
         getProducts();
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        if (error) {
+            const timer = setTimeout(() => setError(null), 5000);
+            return () => clearTimeout(timer)
+        }
+    }, [error]);
 
     const getProducts = async () => {
         setLoading(true);
@@ -52,7 +59,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
         setError,
         products,
         selectedPrice,
-        setSelectedPrice,        
+        setSelectedPrice,
     }), [loading, error, selectedPrice, products]);
 
     return (

@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useMemo, useState, useEffect } from "react";
 import { getValidationCode } from "../services/email-api";
 import type { UserId } from "../types/types";
 
@@ -25,6 +25,13 @@ export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const [email, setEmail] = useState<string | undefined>("");
     const [codeSent, setCodeSent] = useState<boolean>(false);
     const [userId, setUserId] = useState<UserId>();
+
+    useEffect(() => {
+        if (error) {
+            const timer = setTimeout(() => setError(null), 5000);
+            return  () => clearTimeout(timer)            
+        }
+    }, [error]);
 
     const sendVerificationCode = async (email: string) => {
         setLoading(true);
