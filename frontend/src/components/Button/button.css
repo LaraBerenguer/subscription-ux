@@ -1,4 +1,4 @@
-button {
+.button-component {
     font-family: "Baloo 2";
     font-weight: 800;
     font-size: large;
@@ -9,6 +9,6 @@ button {
     border-radius: 8px;
 }
 
-button.hover {
+.button-component.hover {
     color: #fff
 }

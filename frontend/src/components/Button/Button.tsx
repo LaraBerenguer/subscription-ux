@@ -9,7 +9,7 @@ interface ButtonProps {
 
 const Button = ({ children, type, onClick }: ButtonProps) => {
     return (
-        <button type={type} onClick={onClick}>
+        <button className="button-component" type={type} onClick={onClick}>
             {children}
         </button>
     );
