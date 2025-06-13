@@ -3,6 +3,10 @@ export interface UserInfo {
     code: string;
 };
 
+export interface UserId {
+    user_id: number;
+}
+
 type Product = {
     price: string;
     currency: string;

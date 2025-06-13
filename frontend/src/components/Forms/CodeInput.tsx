@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import "./CodeInput.css";
 import Button from "../Button/Button";
 import { useEmailContext } from "../../context/EmailContext";
-import type { UserInfo } from "../../types/types";
+import type { UserId, UserInfo } from "../../types/types";
 import { validateEmail } from "../../services/validate-api";
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +11,7 @@ const CODE_LENGTH = 6;
 const CodeInput = () => {
     const [code, setCode] = useState<string>("");
     const [error, setError] = useState<string | null>("");
-    const { email, setLoading } = useEmailContext();
+    const { email, setUserId, setLoading } = useEmailContext();
     const inputRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
 
@@ -31,8 +31,11 @@ const CodeInput = () => {
 
         try {
             const user: UserInfo = { "email": email, "code": code };
-            const verifiedUserId = await validateEmail(user);
+            const response = await validateEmail(user);
+            const verifiedUserId: UserId = response.user_id;
+
             if (verifiedUserId) {
+                setUserId(verifiedUserId);
                 navigate("/plans");
             }
             setLoading(false);

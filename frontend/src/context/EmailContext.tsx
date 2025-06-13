@@ -1,5 +1,6 @@
 import { createContext, useContext, useMemo, useState } from "react";
 import { getValidationCode } from "../services/email-api";
+import type { UserId } from "../types/types";
 
 interface EmailContextProps {
     sendVerificationCode: (email: string) => Promise<boolean>;
@@ -11,6 +12,8 @@ interface EmailContextProps {
     setEmail: React.Dispatch<React.SetStateAction<string | undefined>>;
     codeSent: boolean;
     setCodeSent: React.Dispatch<React.SetStateAction<boolean>>;
+    userId: UserId | undefined;
+    setUserId: React.Dispatch<React.SetStateAction<UserId | undefined>>;
 };
 
 export const EmailContext = createContext<EmailContextProps | undefined>(undefined);
@@ -21,6 +24,7 @@ export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const [error, setError] = useState<string | null>("");
     const [email, setEmail] = useState<string | undefined>("");
     const [codeSent, setCodeSent] = useState<boolean>(false);
+    const [userId, setUserId] = useState<UserId>();
 
     const sendVerificationCode = async (email: string) => {
         setLoading(true);
@@ -54,8 +58,10 @@ export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         email,
         setEmail,
         codeSent,
-        setCodeSent
-    }), [loading, error, email, codeSent]);
+        setCodeSent,
+        setUserId,
+        userId
+    }), [loading, error, email, codeSent, userId]);
 
     return (
         <EmailContext.Provider value={value}>
