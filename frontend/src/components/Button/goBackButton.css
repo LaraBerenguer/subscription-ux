@@ -1,6 +1,8 @@
 .go-back-button {
     font-family: "Baloo 2";
     font-weight: 100;
+    font-size: small;
+    max-width: 10rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;

@@ -5,11 +5,12 @@ import { useEmailContext } from "../../context/EmailContext";
 import type { UserId, UserInfo } from "../../types/types";
 import { validateEmail } from "../../services/validate-api";
 import { useNavigate } from "react-router-dom";
+import ResendCode from "../ResendCode/ResendCode";
 
 const CODE_LENGTH = 6;
 
 const CodeInput = () => {
-    const [code, setCode] = useState<string>("");    
+    const [code, setCode] = useState<string>("");
     const { email, setUserId, setLoading, error, setError } = useEmailContext();
     const inputRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
@@ -30,7 +31,7 @@ const CodeInput = () => {
 
         try {
             const user: UserInfo = { "email": email, "code": code };
-            const response:UserId = await validateEmail(user);            
+            const response: UserId = await validateEmail(user);
 
             if (response) {
                 setUserId(response);
@@ -64,9 +65,11 @@ const CodeInput = () => {
                     </div>
                 ))}
             </div>
-
-            {error && <div id="email-error" className="error-message">{error}</div>}
-            <div className="pin-button">
+            <div className="pin--resend-code">
+                <ResendCode />
+            </div>
+            {error && <div id="pin--email-error" className="error-message">{error}</div>}
+            <div className="pin--button">
                 <Button type="submit">Verify</Button>
             </div>
         </form>

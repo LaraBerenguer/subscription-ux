@@ -1,43 +1,77 @@
 .verify-page {
-    display: flex;
-    flex-direction: column;  
-    justify-content: space-between;     
-    width: 100%;
-    gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  width: 100%;
+  gap: 2rem;
 }
 
-.go-back-button{
-    max-width: 10rem;
-    font-size: small;
-}
-
-.verify-page--content {
-    display: flex;    
-    gap: 2rem;
-    align-items: center;  
+.verify-page--title {
+  margin-bottom: 3.5rem;
 }
 
 .verify-page--list,
 .verify-page--form {
   flex: 1;
-  padding: 1rem;
+  text-align: center;
 }
 
-.verify-page--title {
+.verify-page--list {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.connect-page--benefits {
   margin-bottom: 2rem;
-  text-align: center;   
 }
 
 .verify-page--title h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 800;
 }
 
-.verify-page--title h2 {
+.verify-page--title h2,
+p {
   font-size: 1.25rem;
-  font-weight: 400;
+  font-weight: 100;
 }
 
 .verify-page--title p {
   color: var(--green);
+}
+
+@media (max-width: 768px) {
+  .verify-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* to show the children elements */
+  .verify-page--list,
+  .verify-page--form {
+    display: contents;
+  }
+
+  .verify-page--benefits,
+  .verify-page--title,
+  .verify-page--input {
+    width: 100%;
+  }
+
+  .verify-page--title {
+    order: 1;
+  }
+
+  .verify-page--benefits {
+    order: 2;
+  }
+
+  .verify-page--input {
+    order: 3;
+    margin-top: 6rem;;
+  }
 }
