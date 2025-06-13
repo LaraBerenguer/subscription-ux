@@ -3,17 +3,31 @@ import Button from "../components/Button/Button";
 import PriceCard from "../components/Card/PriceCard";
 import { useProductContext } from "../context/ProductsContext";
 import TermsAndConditions from "../components/Terms/TermsAndConditions";
+import { useEmailContext } from "../context/EmailContext";
+import { startTrial } from "../services/trial-api";
 import "../styles/plansPage.css";
 
 const PlansPage = () => {
     const { products, selectedPrice, error, setError } = useProductContext();
+    const { userId, isUserIdAvailable } = useEmailContext();
     const navigate = useNavigate();
 
-    const handleStartTrial = () => {
-        if (selectedPrice) {
-            navigate("/success");
+    const handleStartTrial = async () => {
+        if (!isUserIdAvailable) {
+            setError("User ID is not available. Please verify your email first.");
+            return;
+        }
+
+        if (selectedPrice && userId) {
+            try {
+                await startTrial(userId);
+                navigate("/success");
+            } catch (error) {
+                setError(error instanceof Error ? error.message : "Failed to start trial");
+            }
+            
         } else {
-            setError("Select a plan")
+            setError("Please, select a plan");
         };
     };
 
