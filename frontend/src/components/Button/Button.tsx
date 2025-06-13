@@ -5,11 +5,12 @@ interface ButtonProps {
     onClick?: () => void;
     children: ReactNode;
     type: "button" | "submit";
+    backgroundColor?: "primary" | "secondary";
 }
 
-const Button = ({ children, type, onClick }: ButtonProps) => {
+const Button = ({ children, type, onClick, backgroundColor }: ButtonProps) => {
     return (
-        <button className="button-component" type={type} onClick={onClick}>
+        <button className="button-component" type={type} onClick={onClick} style={{background: backgroundColor ? `var(--${backgroundColor})` : `var(--primary)`}}>
             {children}
         </button>
     );

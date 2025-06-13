@@ -70,7 +70,7 @@ const CodeInput = () => {
             </div>
             {error && <div id="pin--email-error" className="error-message">{error}</div>}
             <div className="pin--button">
-                <Button type="submit">Verify</Button>
+                <Button type="submit" backgroundColor="primary">Verify</Button>
             </div>
         </form>
     );

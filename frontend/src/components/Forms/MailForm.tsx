@@ -49,7 +49,7 @@ const MailForm = ({ type }: MailFormProps) => {
             </div>
             <CheckOffers />
             {error && <div id="email-error" className="error-message">{error}</div>}
-            <Button type={type}>Connect</Button>
+            <Button type={type} backgroundColor="primary">Connect</Button>
         </form>
     )
 };
