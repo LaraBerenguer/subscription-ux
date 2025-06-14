@@ -13,6 +13,7 @@ const CheckOffers = () => {
                 
                 onChange={handleCheck}
                 className="offers--checkbox"
+                tabIndex={0}
             />
             <span>Send me Offers, News and Fun Stuff!</span>
         </div>
