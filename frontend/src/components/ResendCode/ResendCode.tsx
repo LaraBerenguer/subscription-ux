@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { useEmailContext } from '../../hooks/useEmailContext';
 import './resendCode.css';
+import { useError } from '../../hooks/useError';
 
 const ResendCode = () => {
-  const { email, sendVerificationCode, setError } = useEmailContext();
+  const { email, sendVerificationCode } = useEmailContext();
+  const { showError } = useError();
   const [message, setMessage] = useState<string | null>(null);
 
   const handleResend = async () => {
     if (!email) {
-      setError('Please go back and enter your mail');
+      showError('Please go back and enter your mail');
       return;
     };
 
@@ -19,7 +21,7 @@ const ResendCode = () => {
       }
 
     } catch (error) {
-      setError(error instanceof Error ? error.message : 'Failed to send validation code');
+      showError(error instanceof Error ? error.message : 'Failed to send validation code');
     }
   };
 

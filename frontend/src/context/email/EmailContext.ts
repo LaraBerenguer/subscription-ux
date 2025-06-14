@@ -6,8 +6,8 @@ interface EmailContextProps {
     loading: boolean;
     setLoading: React.Dispatch<React.SetStateAction<boolean>>;
     error: string | null;
-    setError: React.Dispatch<React.SetStateAction<string | null>>;
-    setErrorReset: (message: string) => void;
+    showError: (message: string) => void;
+    clearError: () => void;
     email: string | undefined;
     setEmail: React.Dispatch<React.SetStateAction<string | undefined>>;
     codeSent: boolean;
