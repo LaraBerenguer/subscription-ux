@@ -53,7 +53,7 @@ const PlansPage = () => {
                 <span><small>Cancel anytime.</small></span>
             </section>
             <section className="plans-page--button">
-                {error && <span className="plans-page--error">{error}</span>}
+                {error && <span className="plans-page--error" role="alert">{error}</span>}
                 <Button type="button" onClick={handleStartTrial} backgroundColor="secondary">Start my free trial!</Button>
             </section>
             <section className="plans-page--privacy">

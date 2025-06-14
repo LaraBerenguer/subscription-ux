@@ -17,7 +17,7 @@ const GoBackButton = ({ children, variant }: GoBackButtonProps) => {
     };
 
     return (
-        <button className={`go-back-button ${variant}`} onClick={handleGoBack}>
+        <button className={`go-back-button ${variant}`} onClick={handleGoBack} aria-label={children ? "Modify Email" : "Go back"}>
             {children ? children : variant === "rounded" ? <ArrowIcon /> : <div className="go-back-button--left"><FullArrowIcon />Modify Email</div>}
         </button>
     );

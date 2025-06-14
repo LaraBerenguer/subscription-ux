@@ -54,7 +54,9 @@ const CodeInput = () => {
 
     return (
         <form className="pin-wrapper" onClick={handleClick} onSubmit={handleVerify}>
+            <label htmlFor="code" hidden>Code</label>
             <input
+                id="code"
                 ref={inputRef}
                 type="text"
                 inputMode="numeric"
@@ -64,6 +66,7 @@ const CodeInput = () => {
                 onChange={handleChange}
                 maxLength={CODE_LENGTH}
                 className="pin-hidden-input"
+                aria-describedby={error ? "code-error" : undefined}
             />
             <div className="pin-box-wrapper">
                 {Array.from({ length: CODE_LENGTH }).map((_, i) => (
@@ -75,7 +78,7 @@ const CodeInput = () => {
             <div className="pin--resend-code">
                 <ResendCode />
             </div>
-            {error && <div id="pin--email-error" className="error-message">{error}</div>}
+            {error && <div id="pin--email-error" className="error-message" role="alert">{error}</div>}
             <div className="pin--button">
                 <Button type="submit" backgroundColor="primary">Verify</Button>
             </div>
