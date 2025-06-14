@@ -57,7 +57,7 @@ const MailForm = ({ type }: MailFormProps) => {
                 <input id="email" value={email} onChange={handleEmail} placeholder="Email Address" aria-invalid={Boolean(error)} aria-describedby={error ? "email-error" : undefined} />
             </div>
             <CheckOffers />
-            {error && <div id="email-error" className="error-message">{error}</div>}
+            {error && <div id="email-error" className="error-message" role="alert">{error}</div>}
             <Button type={type} backgroundColor="primary">Connect</Button>
         </form>
     )
