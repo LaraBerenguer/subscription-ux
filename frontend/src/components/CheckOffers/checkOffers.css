@@ -36,6 +36,6 @@
     transform: translate(-50%, -50%);
 }
 
-.offers-wrapper span {
+.offers-wrapper label {
     flex: 0 1 auto;
 }
