@@ -1,19 +1,7 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import type { ProductList } from "../types/types";
 import { getProductsList } from "../services/product-api";
-
-interface ProductContextProps {
-    getProducts: () => Promise<ProductList | null>;
-    loading: boolean;
-    setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-    error: string | null;
-    setError: React.Dispatch<React.SetStateAction<string | null>>;
-    products: ProductList | null;
-    selectedPrice: string | null;
-    setSelectedPrice: React.Dispatch<React.SetStateAction<string | null>>
-};
-
-export const ProductContext = createContext<ProductContextProps | undefined>(undefined);
+import { ProductContext } from "./productsContext";
 
 export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
