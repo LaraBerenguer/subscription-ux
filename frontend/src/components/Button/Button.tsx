@@ -10,7 +10,7 @@ interface ButtonProps {
 
 const Button = ({ children, type, onClick, backgroundColor }: ButtonProps) => {
     return (
-        <button className="button-component" type={type} onClick={onClick} style={{background: backgroundColor ? `var(--${backgroundColor})` : `var(--primary)`}}>
+        <button className="button-component" type={type} onClick={onClick} style={{background: backgroundColor ? `var(--${backgroundColor})` : `var(--primary)`}} aria-label="Submit">
             {children}
         </button>
     );

@@ -25,7 +25,7 @@ const ResendCode = () => {
 
     return (
         <div className="resend-email">
-            <span>Didn't get an email?<button className="resend-email--button" onClick={handleResend}>Resend Code</button></span>
+            <span>Didn't get an email?<button className="resend-email--button" onClick={handleResend} aria-label="Resend verification code">Resend Code</button></span>
             {message && <div className="resend-mail--message">{message}</div>}
         </div>
     )
