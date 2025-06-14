@@ -3,7 +3,7 @@ import ConnectPage from '../pages/ConnectPage';
 import VerifyPage from '../pages/VerifyPage';
 import PlansPage from '../pages/PlansPage';
 import SuccessPage from '../pages/SuccessPage';
-import Layout from '../layout/layout';
+import Layout from '../layout/Layout';
 
 function AppRoutes() {
   return (

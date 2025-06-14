@@ -11,7 +11,7 @@ function sendResponse(res, statusCode, data, contentType = 'application/json') {
   res.writeHead(statusCode, {
     'Content-Type': contentType,
     //Added CORS
-    'Access-Control-Allow-Origin': 'http://localhost:5173',
+    'Access-Control-Allow-Origin': 'http://localhost:3000',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type'
   });
@@ -21,7 +21,7 @@ function sendResponse(res, statusCode, data, contentType = 'application/json') {
 //CORS preflight
 function handleOptionsRequest(res) {
   res.writeHead(204, {
-    'Access-Control-Allow-Origin': 'http://localhost:5173',
+    'Access-Control-Allow-Origin': 'http://localhost:3000',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type'
   });

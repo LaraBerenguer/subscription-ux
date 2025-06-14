@@ -23,7 +23,7 @@
 body {  
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   min-height: 100vh;
   padding-inline: var(--padding-inline);
   width: 100vw;
@@ -42,6 +42,12 @@ body {
   flex-direction: column;
   justify-content: space-between;
   min-height: 30vh;
-  padding-top: 4rem;
+  padding-top: 17rem;
   padding-bottom: 4rem;
+}
+
+@media (max-width: 887px) {
+  .page-main {
+    padding-top: 4rem;
+  }
 }
