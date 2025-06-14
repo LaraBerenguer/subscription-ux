@@ -6,7 +6,7 @@ import "../styles/verifyPage.css";
 const VerifyPage = () => {
     const { email } = useEmailContext();
     return (
-        <main className="verify-page">
+        <main className="verify-page page-main">
             <section className="verify-page--list">
                 <div className="verify-page--benefits">
                     <List />

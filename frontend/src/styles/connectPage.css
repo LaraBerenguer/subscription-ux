@@ -77,5 +77,6 @@
 
     .connect-page--terms {
         order: 4;
+        padding: 5rem;
     }    
 }
