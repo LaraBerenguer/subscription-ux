@@ -15,6 +15,7 @@ const MailForm = ({ type }: MailFormProps) => {
 
   const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
+    clearError();
   };
 
   const handleConnectUser = async (e: React.FormEvent<HTMLFormElement>) => {

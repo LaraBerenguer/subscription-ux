@@ -26,7 +26,11 @@ export const useEmailActions = ({ setLoading, setCodeSent }: UseEmailActions) =>
             return isCodeSent;
         } catch (error) {
             const errorMessage = error instanceof Error ? error : new Error('Failed to send validation code');
-            showError(errorMessage.message);
+            if (errorMessage.message === "Please wait before requesting another code") {
+                showError(errorMessage.message);
+            } else {                
+                showError('Failed to send validation code');
+            }
             setLoading(false);
             return false;
         }

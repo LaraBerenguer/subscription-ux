@@ -18,7 +18,7 @@ const CodeInput = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setCode(value);
+    setCode(value);    
   };
 
   const handleClick = () => {
