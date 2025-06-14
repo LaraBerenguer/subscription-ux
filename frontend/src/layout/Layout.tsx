@@ -1,23 +1,23 @@
-import { Outlet, useLocation } from "react-router-dom";
-import GoBackButton from "../components/Button/GoBackButton";
+import { Outlet, useLocation } from 'react-router-dom';
+import GoBackButton from '../components/Button/GoBackButton';
 
 const Layout = () => {
-    const buttonPages: Record<string, "transparent" | "rounded"> = {
-        "/verify": "transparent",
-        "/plans": "rounded"
-    };
+  const buttonPages: Record<string, 'transparent' | 'rounded'> = {
+    '/verify': 'transparent',
+    '/plans': 'rounded',
+  };
 
-    const location = useLocation();
-    const currentlocation = buttonPages[location.pathname];
+  const location = useLocation();
+  const currentlocation = buttonPages[location.pathname];
 
-    return (
-        <main>
-            {currentlocation &&
+  return (
+    <main>
+      {currentlocation &&
                 <div className="go-back-button">
-                    <GoBackButton variant={currentlocation} /></div>}
-            <Outlet />
-        </main>
-    );
+                  <GoBackButton variant={currentlocation} /></div>}
+      <Outlet />
+    </main>
+  );
 };
 
 export default Layout;

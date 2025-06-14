@@ -1,5 +1,5 @@
-import { createContext } from "react";
-import type { UserId } from "../types/types";
+import { createContext } from 'react';
+import type { UserId } from '../types/types';
 
 interface EmailContextProps {
     sendVerificationCode: (email: string) => Promise<boolean>;
