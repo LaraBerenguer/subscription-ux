@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { EmailContext } from '../context/emailContext';
+import { EmailContext } from '../context/email/EmailContext';
 import type { UserId } from '../types/types';
 
 export const useEmailContext = () => {

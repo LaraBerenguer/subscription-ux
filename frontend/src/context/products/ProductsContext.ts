@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import type { ProductList } from '../types/types';
+import type { ProductList } from '../../types/types';
 
 interface ProductContextProps {
     getProducts: () => Promise<ProductList | null>;

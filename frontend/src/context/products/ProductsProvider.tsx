@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
-import type { ProductList } from '../types/types';
-import { getProductsList } from '../services/product-api';
-import { ProductContext } from './productsContext';
+import type { ProductList } from '../../types/types';
+import { getProductsList } from '../../services/product-api';
+import { ProductContext } from './ProductsContext';
 
 export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
