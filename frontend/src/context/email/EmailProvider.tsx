@@ -1,7 +1,7 @@
 import { useMemo, useState, useEffect } from 'react';
-import { getValidationCode } from '../../services/email-api';
 import type { UserId } from '../../types/types';
 import { EmailContext } from './EmailContext';
+import { useEmailActions } from '../../hooks/useEmailActions';
 
 export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
@@ -12,29 +12,7 @@ export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [codeSent, setCodeSent] = useState<boolean>(false);
   const [userId, setUserId] = useState<UserId>();
   const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
-
-  const sendVerificationCode = async (email: string) => {
-    setLoading(true);
-    setError(null);
-
-    if (!email) {
-      setError('Please enter an email address');
-      setLoading(false);
-      return false;
-    };
-
-    try {
-      const isCodeSent: boolean = await getValidationCode(email);
-      setCodeSent(isCodeSent);
-      setLoading(false);
-      return isCodeSent;
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error : new Error('Failed to send validation code');
-      setError(errorMessage.message);
-      setLoading(false);
-      return false;
-    }
-  };
+  const { sendVerificationCode } = useEmailActions({setLoading, setError, setCodeSent});
 
   useEffect(() => {
     if (error) {

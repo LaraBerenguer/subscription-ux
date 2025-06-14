@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { ProductList } from '../../types/types';
-import { getProductsList } from '../../services/product-api';
 import { ProductContext } from './ProductsContext';
+import { useProductsActions } from '../../hooks/useProductsActions';
 
 export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
@@ -9,6 +9,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [error, setError] = useState<string | null>('');
   const [products, setProducts] = useState<ProductList | null>(null);
   const [selectedPrice, setSelectedPrice] = useState<string | null>(null);
+  const {getProducts} = useProductsActions({setError, setLoading, setProducts});
 
   useEffect(() => {
     getProducts();
@@ -19,25 +20,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
       const timer = setTimeout(() => setError(null), 5000);
       return () => clearTimeout(timer);
     }
-  }, [error]);
-
-  const getProducts = async () => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      const productsList: ProductList = await getProductsList();
-      setProducts(productsList);
-      setLoading(false);
-      return productsList;
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error : new Error('Failed to fetch products');
-      setError(errorMessage.message);
-      setProducts(null);
-      setLoading(false);
-      return null;
-    }
-  };
+  }, [error]);  
 
   const value = useMemo(() => ({
     getProducts,
