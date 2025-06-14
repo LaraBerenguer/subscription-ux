@@ -16,8 +16,13 @@ const CodeInput = () => {
     const navigate = useNavigate();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value.replace(/\D/g, "").slice(0, CODE_LENGTH);
-        setCode(value);
+        const value = e.target.value;
+        const validatedCode = ({ value, CODE_LENGTH });
+        if (validatedCode) {
+            setCode(value);
+        } else {
+            setError("Invalid code")
+        }
     };
 
     const handleClick = () => {
