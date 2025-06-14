@@ -1,0 +1,38 @@
+.success-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 2rem;
+    text-align: center;
+}
+
+.success-page--title h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.success-page--title h2 {
+    font-size: 1.25rem;
+    font-weight: 100;
+}
+
+.success-page--title span {
+    color: var(--secondary);
+}
+
+.success-page--celebration img {
+    height: 20rem;
+    padding: 2rem;
+}
+
+.success-page--link {
+    padding: 5rem;
+}
+
+@media (max-width: 887px) {
+    .success-page--celebration {
+        padding: 5rem;
+    }
+}

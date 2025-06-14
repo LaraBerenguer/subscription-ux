@@ -23,12 +23,25 @@
 body {  
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
   padding-inline: var(--padding-inline);
+  width: 100vw;
+  height: 100vh;
 }
 
 #root {
   width: 100%;
   max-width: var(--max-width);
+  min-height: 100vh;
+}
+
+.page-main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 30vh;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }

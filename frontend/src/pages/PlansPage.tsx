@@ -32,7 +32,7 @@ const PlansPage = () => {
     };
 
     return (
-        <main className="plans-page">
+        <main className="plans-page page-main">
             <section className="plans-page--title">
                 <h1>Choose your plan</h1>
             </section>

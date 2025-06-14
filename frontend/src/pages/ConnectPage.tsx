@@ -5,7 +5,7 @@ import "../styles/connectPage.css";
 
 const ConnectPage = () => {
     return (
-        <main className="connect-page">
+        <main className="connect-page page-main">
             <section className="connect-page--list">
                 <div className="connect-page--benefits">
                     <List />

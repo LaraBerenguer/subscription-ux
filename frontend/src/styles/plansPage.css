@@ -2,7 +2,7 @@
     font-size: xx-large;
     font-weight: 800;
     text-align: center;
-    margin: 4rem;
+    padding-bottom: 3rem;
 }
 
 .plans-page--cards {
@@ -48,5 +48,9 @@
     .plans-page--button,
     .plans-page--privacy {
         margin-top: 5rem;
+    }
+
+    .plans-page--title {
+        padding-bottom: 6rem;
     }
 }
