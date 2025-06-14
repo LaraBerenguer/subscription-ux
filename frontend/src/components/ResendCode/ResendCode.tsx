@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useEmailContext } from "../../context/EmailContext";
+import { useEmailContext } from "../../hooks/useEmailContext";
 import "./resendCode.css";
 
 const ResendCode = () => {

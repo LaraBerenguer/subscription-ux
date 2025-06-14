@@ -1,5 +1,5 @@
 import Button from "../Button/Button";
-import { useEmailContext } from "../../context/EmailContext";
+import { useEmailContext } from "../../hooks/useEmailContext";
 import { useNavigate } from "react-router-dom";
 import "./mailForm.css";
 import CheckOffers from "../CheckOffers/CheckOffers";

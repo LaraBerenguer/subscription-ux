@@ -3,7 +3,7 @@ import Button from "../components/Button/Button";
 import PriceCard from "../components/Card/PriceCard";
 import { useProductContext } from "../context/ProductsContext";
 import TermsAndConditions from "../components/Terms/TermsAndConditions";
-import { useEmailContext } from "../context/EmailContext";
+import { useEmailContext } from "../hooks/useEmailContext";
 import { startTrial } from "../services/trial-api";
 import "../styles/plansPage.css";
 

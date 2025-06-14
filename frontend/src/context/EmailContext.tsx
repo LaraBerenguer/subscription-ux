@@ -1,9 +1,7 @@
-import { useContext, useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { getValidationCode } from "../services/email-api";
 import type { UserId } from "../types/types";
 import { EmailContext } from "./emailContext";
-
-
 
 export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
@@ -43,7 +41,7 @@ export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ childre
             const timer = setTimeout(() => setError(null), 5000);
             return () => clearTimeout(timer)
         }
-    }, [errorId]);
+    }, [errorId, error]);
 
     const setErrorReset = (message: string) => {
         setError(message);
@@ -65,24 +63,11 @@ export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         userId,
         isSubscribed,
         setIsSubscribed
-    }), [loading, error, email, codeSent, userId]);
+    }), [loading, error, email, codeSent, userId, isSubscribed]);
 
     return (
         <EmailContext.Provider value={value}>
             {children}
         </EmailContext.Provider>
     );
-};
-
-export const useEmailContext = () => {
-    const context = useContext(EmailContext);
-    if (!context) {
-        throw new Error('useEmailContext must be used within an EmailProvider');
-    }
-
-    return {
-        ...context,
-        userId: context.userId as UserId,
-        isUserIdAvailable: !!context.userId
-    };
 };

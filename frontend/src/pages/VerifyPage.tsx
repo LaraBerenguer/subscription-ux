@@ -1,6 +1,6 @@
 import CodeInput from "../components/Forms/CodeInput";
 import List from "../components/List/List";
-import { useEmailContext } from "../context/EmailContext";
+import { useEmailContext } from "../hooks/useEmailContext";
 import "../styles/verifyPage.css";
 
 const VerifyPage = () => {

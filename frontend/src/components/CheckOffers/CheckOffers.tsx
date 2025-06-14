@@ -1,4 +1,4 @@
-import { useEmailContext } from "../../context/EmailContext";
+import { useEmailContext } from "../../hooks/useEmailContext";
 import "./checkOffers.css";
 
 const CheckOffers = () => {  

@@ -1,7 +1,7 @@
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { ProductList } from "../types/types";
 import { getProductsList } from "../services/product-api";
-import { ProductContext } from "./productsContext";
+import { ProductContext } from "./ProductsContext";
 
 export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
@@ -55,12 +55,4 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
             {children}
         </ProductContext.Provider>
     );
-};
-
-export const useProductContext = () => {
-    const context = useContext(ProductContext);
-    if (!context) {
-        throw new Error('useProductContext must be used within an ProductProvider');
-    }
-    return context;
 };

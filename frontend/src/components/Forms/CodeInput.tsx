@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./CodeInput.css";
 import Button from "../Button/Button";
-import { useEmailContext } from "../../context/EmailContext";
+import { useEmailContext } from "../../hooks/useEmailContext";
 import type { UserId, UserInfo } from "../../types/types";
 import { validateEmail } from "../../services/validate-api";
 import { useNavigate } from "react-router-dom";
