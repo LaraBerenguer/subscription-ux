@@ -1,7 +1,7 @@
 import { useMemo, useState, useEffect } from 'react';
-import { getValidationCode } from '../services/email-api';
-import type { UserId } from '../types/types';
-import { EmailContext } from './emailContext';
+import { getValidationCode } from '../../services/email-api';
+import type { UserId } from '../../types/types';
+import { EmailContext } from './EmailContext';
 
 export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
