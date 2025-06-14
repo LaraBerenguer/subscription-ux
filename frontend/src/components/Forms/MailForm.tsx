@@ -3,6 +3,7 @@ import { useEmailContext } from "../../context/EmailContext";
 import { useNavigate } from "react-router-dom";
 import "./mailForm.css";
 import CheckOffers from "../CheckOffers/CheckOffers";
+import { emailValidation } from "../../utils/validation";
 
 interface MailFormProps {
     type: "button" | "submit";
@@ -13,8 +14,13 @@ const MailForm = ({ type }: MailFormProps) => {
     const navigate = useNavigate();
 
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(e.target.value);
-        console.log("email: ", email)
+        const value = e.target.value;
+        const validatedEmail = emailValidation(value);
+        if (validatedEmail) {
+            setEmail(e.target.value);
+        } else {
+            setError("Please enter a valid email address")
+        }
     };
 
     const handleConnectUser = async (e: React.FormEvent<HTMLFormElement>) => {
