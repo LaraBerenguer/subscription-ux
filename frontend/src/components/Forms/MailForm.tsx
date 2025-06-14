@@ -14,13 +14,7 @@ const MailForm = ({ type }: MailFormProps) => {
     const navigate = useNavigate();
 
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        const validatedEmail = emailValidation(value);
-        if (validatedEmail) {
-            setEmail(e.target.value);
-        } else {
-            setError("Please enter a valid email address")
-        }
+        setEmail(e.target.value);
     };
 
     const handleConnectUser = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -33,6 +27,15 @@ const MailForm = ({ type }: MailFormProps) => {
             setLoading(false);
             return;
         };
+
+        const value = email;
+        const validatedEmail = emailValidation(value);
+        if (validatedEmail) {
+            setEmail(email);
+        } else {
+            setError("Please enter a valid email address")
+            return;
+        }
 
         try {
             const isCodeSent = await sendVerificationCode(email);
@@ -51,7 +54,7 @@ const MailForm = ({ type }: MailFormProps) => {
         <form id="mailInput" onSubmit={handleConnectUser}>
             <div>
                 <label htmlFor="email" hidden>Email Address</label>
-                <input type="email" id="email" value={email} onChange={handleEmail} placeholder="Email Address" required aria-invalid={Boolean(error)} aria-describedby={error ? "email-error" : undefined} />
+                <input id="email" value={email} onChange={handleEmail} placeholder="Email Address" aria-invalid={Boolean(error)} aria-describedby={error ? "email-error" : undefined} />
             </div>
             <CheckOffers />
             {error && <div id="email-error" className="error-message">{error}</div>}
