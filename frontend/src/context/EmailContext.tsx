@@ -8,6 +8,7 @@ interface EmailContextProps {
     setLoading: React.Dispatch<React.SetStateAction<boolean>>;
     error: string | null;
     setError: React.Dispatch<React.SetStateAction<string | null>>;
+    setErrorReset: (message: string) => void;
     email: string | undefined;
     setEmail: React.Dispatch<React.SetStateAction<string | undefined>>;
     codeSent: boolean;
@@ -22,16 +23,10 @@ export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>("");
+    const [errorId, setErrorId] = useState<number>(0);
     const [email, setEmail] = useState<string | undefined>("");
     const [codeSent, setCodeSent] = useState<boolean>(false);
     const [userId, setUserId] = useState<UserId>();
-
-    useEffect(() => {
-        if (error) {
-            const timer = setTimeout(() => setError(null), 5000);
-            return  () => clearTimeout(timer)            
-        }
-    }, [error]);
 
     const sendVerificationCode = async (email: string) => {
         setLoading(true);
@@ -56,12 +51,25 @@ export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         }
     };
 
+    useEffect(() => {
+        if (error) {
+            const timer = setTimeout(() => setError(null), 5000);
+            return () => clearTimeout(timer)
+        }
+    }, [errorId]);
+
+    const setErrorReset = (message: string) => {
+        setError(message);
+        setErrorId(prev => prev + 1);
+    };
+
     const value = useMemo(() => ({
         sendVerificationCode,
         loading,
         setLoading,
         error,
         setError,
+        setErrorReset,
         email,
         setEmail,
         codeSent,

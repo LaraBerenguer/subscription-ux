@@ -6,23 +6,19 @@ import type { UserId, UserInfo } from "../../types/types";
 import { validateEmail } from "../../services/validate-api";
 import { useNavigate } from "react-router-dom";
 import ResendCode from "../ResendCode/ResendCode";
+import { codeValidation } from "../../utils/validation";
 
 const CODE_LENGTH = 6;
 
 const CodeInput = () => {
     const [code, setCode] = useState<string>("");
-    const { email, setUserId, setLoading, error, setError } = useEmailContext();
+    const { email, setUserId, setLoading, error, setError, setErrorReset } = useEmailContext();
     const inputRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
-        const validatedCode = ({ value, CODE_LENGTH });
-        if (validatedCode) {
-            setCode(value);
-        } else {
-            setError("Invalid code")
-        }
+        setCode(value);
     };
 
     const handleClick = () => {
@@ -35,17 +31,23 @@ const CodeInput = () => {
         setError(null);
 
         try {
-            const user: UserInfo = { "email": email, "code": code };
-            const response: UserId = await validateEmail(user);
+            if (!codeValidation({ code, codeLength: CODE_LENGTH })) {
+                setErrorReset("Code must be 6 digits")
+                return;
+            } else {
+                const user: UserInfo = { "email": email, "code": code };
+                const response: UserId = await validateEmail(user);
 
-            if (response) {
-                setUserId(response);
-                navigate("/plans");
+                if (response) {
+                    setUserId(response);
+                    navigate("/plans");
+                }
+                setLoading(false);
             }
-            setLoading(false);
+
         } catch (error) {
             console.error("Error during verification:", error);
-            setError(error instanceof Error ? error.message : "Invalid code or email");
+            setErrorReset(error instanceof Error ? error.message : "Invalid code or email");
             setLoading(false);
         }
     };

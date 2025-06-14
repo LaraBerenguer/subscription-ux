@@ -4,6 +4,6 @@ export const emailValidation = (email: string) => {
 };
 
 export const codeValidation = ({code, codeLength}: {code:string, codeLength: number}) => {
-    const codeRegex = new RegExp (`/^\d{${codeLength}}$/`)
+    const codeRegex = new RegExp (`^\\d{${codeLength}}$`)
     return codeRegex.test(code);
 };
