@@ -6,7 +6,7 @@ import { useProductsActions } from '../../hooks/useProductsActions';
 export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>('');
+  const [error, setError] = useState<string | null>(null);
   const [products, setProducts] = useState<ProductList | null>(null);
   const [selectedPrice, setSelectedPrice] = useState<string | null>(null);
   const {getProducts} = useProductsActions({setError, setLoading, setProducts});

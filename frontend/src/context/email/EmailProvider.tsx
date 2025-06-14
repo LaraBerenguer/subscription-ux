@@ -6,9 +6,9 @@ import { useEmailActions } from '../../hooks/useEmailActions';
 export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>('');
+  const [error, setError] = useState<string | null>(null);
   const [errorId, setErrorId] = useState<number>(0);
-  const [email, setEmail] = useState<string | undefined>('');
+  const [email, setEmail] = useState<string | undefined>(undefined);
   const [codeSent, setCodeSent] = useState<boolean>(false);
   const [userId, setUserId] = useState<UserId>();
   const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
