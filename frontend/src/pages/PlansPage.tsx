@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button/Button';
 import PriceCard from '../components/Card/PriceCard';
-import { useProductContext } from '../context/ProductsContext';
+import { useProductContext } from '../hooks/useProductsContext';
 import TermsAndConditions from '../components/Terms/TermsAndConditions';
 import { useEmailContext } from '../hooks/useEmailContext';
 import { startTrial } from '../services/trial-api';
