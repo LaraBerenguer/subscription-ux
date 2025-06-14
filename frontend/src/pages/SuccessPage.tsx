@@ -9,7 +9,7 @@ const SuccessPage = () => {
                 <h2>Explore your membership now.</h2>
             </section>
             <section className="success-page--celebration">
-                <img className="success-page-firework" src="/firework.svg"></img>
+                <img className="success-page-firework" src="/firework.svg" alt="Colored fireworks"></img>
             </section>
             <section className="success-page--link">
                 <Link to={"/"}>To the beginning!</Link>
