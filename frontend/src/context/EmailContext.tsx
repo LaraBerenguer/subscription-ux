@@ -15,6 +15,8 @@ interface EmailContextProps {
     setCodeSent: React.Dispatch<React.SetStateAction<boolean>>;
     userId: UserId | undefined;
     setUserId: React.Dispatch<React.SetStateAction<UserId | undefined>>;
+    isSubscribed: boolean;
+    setIsSubscribed: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const EmailContext = createContext<EmailContextProps | undefined>(undefined);
@@ -27,6 +29,7 @@ export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const [email, setEmail] = useState<string | undefined>("");
     const [codeSent, setCodeSent] = useState<boolean>(false);
     const [userId, setUserId] = useState<UserId>();
+    const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
 
     const sendVerificationCode = async (email: string) => {
         setLoading(true);
@@ -75,7 +78,9 @@ export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         codeSent,
         setCodeSent,
         setUserId,
-        userId
+        userId,
+        isSubscribed,
+        setIsSubscribed
     }), [loading, error, email, codeSent, userId]);
 
     return (

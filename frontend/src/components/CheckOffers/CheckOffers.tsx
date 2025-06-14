@@ -1,21 +1,24 @@
+import { useEmailContext } from "../../context/EmailContext";
 import "./checkOffers.css";
 
-const CheckOffers = () => {    
+const CheckOffers = () => {  
+    
+    const {isSubscribed, setIsSubscribed} = useEmailContext();
 
     const handleCheck = () => {        
-        //mail check context
+        setIsSubscribed(prev => !prev);
     };
 
     return (
         <div className="offers-wrapper">
             <input
                 type="checkbox"
-                
+                aria-checked={isSubscribed}                
                 onChange={handleCheck}
                 className="offers--checkbox"
                 tabIndex={0}
             />
-            <span>Send me Offers, News and Fun Stuff!</span>
+            <label htmlFor="offers-checkbox">Send me Offers, News and Fun Stuff!</label>
         </div>
     );
 };
