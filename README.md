@@ -54,6 +54,16 @@ This project includes a **frontend built with React, TypeScript, and Vite**, and
    docker-compose down
    ```
 
+### 👤 User flow
+- Introduce a valid email.
+- Look for your code in you backend log. It will look something like this:
+```sh
+   Code for email=test@test.com: 068107
+   ```
+- Enter the code and tap Verify.
+- Choose your plan and tap on Start my free trial.
+- Congrats! You're done :)
+
 ## 🧾 Notes
 
 - The frontend is served with NGINX and the backend is a Node.js server.
