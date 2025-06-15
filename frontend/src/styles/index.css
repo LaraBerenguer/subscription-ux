@@ -58,6 +58,12 @@ body::before {
   padding-bottom: 4rem;
 }
 
+@media (max-width: 1440px) {
+  .page-main {
+    padding-top: 5rem;
+  }
+}
+
 @media (max-width: 768px) {
   body::before {
     background:
