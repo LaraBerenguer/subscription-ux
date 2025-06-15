@@ -12,7 +12,7 @@ const CODE_LENGTH = 6;
 
 const CodeInput = () => {
   const [code, setCode] = useState<string>('');
-  const { email, setUserId, setLoading, error, setError, setErrorReset } = useEmailContext();
+  const { email, setUserId, setLoading, error, showError, clearError } = useEmailContext();
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
@@ -28,11 +28,11 @@ const CodeInput = () => {
   const handleVerify = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setError(null);
+    clearError();
 
     try {
       if (!codeValidation({ code, codeLength: CODE_LENGTH })) {
-        setErrorReset('Code must be 6 digits');
+        showError('Code must be 6 digits');
         return;
       } else {
         const user: UserInfo = { 'email': email, 'code': code };
@@ -47,7 +47,7 @@ const CodeInput = () => {
 
     } catch (error) {
       console.error('Error during verification:', error);
-      setErrorReset(error instanceof Error ? error.message : 'Invalid code or email');
+      showError(error instanceof Error ? error.message : 'Invalid code or email');
       setLoading(false);
     }
   };

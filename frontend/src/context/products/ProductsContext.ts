@@ -6,7 +6,8 @@ interface ProductContextProps {
     loading: boolean;
     setLoading: React.Dispatch<React.SetStateAction<boolean>>;
     error: string | null;
-    setError: React.Dispatch<React.SetStateAction<string | null>>;
+    showError: (message: string) => void;
+    clearError: () => void;
     products: ProductList | null;
     selectedPrice: string | null;
     setSelectedPrice: React.Dispatch<React.SetStateAction<string | null>>

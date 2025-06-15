@@ -10,20 +10,21 @@ interface MailFormProps {
 }
 
 const MailForm = ({ type }: MailFormProps) => {
-  const { email, setEmail, error, setError, setLoading, sendVerificationCode } = useEmailContext();
+  const { email, setEmail, error, showError, clearError, setLoading, sendVerificationCode } = useEmailContext();
   const navigate = useNavigate();
 
   const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
+    clearError();
   };
 
   const handleConnectUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setError(null);
+    clearError();
 
     if (!email) {
-      setError('Please enter an email address');
+      showError('Please enter an email address');
       setLoading(false);
       return;
     };
@@ -33,7 +34,7 @@ const MailForm = ({ type }: MailFormProps) => {
     if (validatedEmail) {
       setEmail(email);
     } else {
-      setError('Please enter a valid email address');
+      showError('Please enter a valid email address');
       return;
     }
 
@@ -45,7 +46,7 @@ const MailForm = ({ type }: MailFormProps) => {
       setLoading(false);
     } catch (error) {
       console.error('Error during verification:', error);
-      setError(error instanceof Error ? error.message : 'Failed to send validation code');
+      showError(error instanceof Error ? error.message : 'Failed to send validation code');
       setLoading(false);
     }
   };

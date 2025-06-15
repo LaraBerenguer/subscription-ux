@@ -1,7 +1,10 @@
-.resend-email {    
-    font-size: larger;
+.resend-email {
     font-weight: 100;
     margin-top: 5rem;
+}
+
+.resend-email--span {
+    font-size: larger;
 }
 
 .resend-email--button {
@@ -15,6 +18,14 @@
     margin-left: 0.5rem;
 }
 
+.resend-mail--message, .resend-mail--error {
+    font-size: medium;
+}
+
 .resend-mail--message {
     color: var(--green);
+}
+
+.resend-mail--error {    
+    color: var(--error);
 }

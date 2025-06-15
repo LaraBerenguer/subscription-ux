@@ -3,7 +3,6 @@ import { API_URL, END_POINTS } from '../config';
 //get code
 export const getValidationCode = async (email: string): Promise<boolean> => {
   try {
-    console.log('hola');
     const response = await fetch(`${API_URL}/${END_POINTS.email.sendCode}?email=${email}`, {
       method: 'GET',
       headers: {

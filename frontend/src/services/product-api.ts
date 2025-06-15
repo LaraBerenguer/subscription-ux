@@ -15,7 +15,7 @@ export const getProductsList = async (): Promise<ProductList> => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    const data = response.json();
+    const data = await response.json();
 
     return data;
 
