@@ -58,7 +58,7 @@ body::before {
   padding-bottom: 4rem;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1600px) {
   .page-main {
     padding-top: 5rem;
   }
