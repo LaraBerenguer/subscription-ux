@@ -14,7 +14,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   useEffect(() => {
     getProducts();
-  });
+  }, []);
 
   const value = useMemo(() => ({
     getProducts,
