@@ -40,7 +40,7 @@ const PlansPage = () => {
       </section>
       <section className="plans-page--cards">
         {products &&
-                    Object.entries(products).map(([key, value]) => (
+                    Object.entries(products).reverse().map(([key, value]) => (
                       <PriceCard
                         key={key}
                         plan={key}
