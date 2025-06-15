@@ -6,13 +6,13 @@ import { useError } from '../../hooks/useError';
 
 export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
-  const [loading, setLoading] = useState<boolean>(false);  
+  const [loading, setLoading] = useState<boolean>(false);
   const [email, setEmail] = useState<string | undefined>(undefined);
   const [codeSent, setCodeSent] = useState<boolean>(false);
   const [userId, setUserId] = useState<UserId>();
-  const [isSubscribed, setIsSubscribed] = useState<boolean>(false);  
-  const { sendVerificationCode } = useEmailActions({setLoading, setCodeSent});
-  const {error, showError, clearError} = useError();
+  const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
+  const { sendVerificationCode } = useEmailActions({ setLoading, setCodeSent });
+  const { error, showError, clearError } = useError();
 
   const value = useMemo(() => ({
     sendVerificationCode,
@@ -29,7 +29,7 @@ export const EmailProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     userId,
     isSubscribed,
     setIsSubscribed,
-  }), [loading, error, email, codeSent, userId, isSubscribed, showError, clearError]);
+  }), [loading, error, email, codeSent, userId, isSubscribed, showError, clearError, sendVerificationCode]);
 
   return (
     <EmailContext.Provider value={value}>

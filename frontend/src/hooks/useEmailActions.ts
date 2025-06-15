@@ -7,35 +7,35 @@ interface UseEmailActions {
 };
 
 export const useEmailActions = ({ setLoading, setCodeSent }: UseEmailActions) => {
-    const { showError, clearError } = useError();
+  const { showError, clearError } = useError();
 
-    const sendVerificationCode = async (email: string) => {
-        setLoading(true);
-        clearError();
+  const sendVerificationCode = async (email: string) => {
+    setLoading(true);
+    clearError();
 
-        if (!email) {
-            showError('Please enter an email address');
-            setLoading(false);
-            return false;
-        };
-
-        try {
-            const isCodeSent: boolean = await getValidationCode(email);
-            setCodeSent(isCodeSent);
-            setLoading(false);
-            return isCodeSent;
-        } catch (error) {
-            const errorMessage = error instanceof Error ? error : new Error('Failed to send validation code');
-            if (errorMessage.message === "Please wait before requesting another code") {
-                showError(errorMessage.message);
-            } else {                
-                showError('Failed to send validation code');
-            }
-            setLoading(false);
-            return false;
-        }
+    if (!email) {
+      showError('Please enter an email address');
+      setLoading(false);
+      return false;
     };
-    return {
-        sendVerificationCode
+
+    try {
+      const isCodeSent: boolean = await getValidationCode(email);
+      setCodeSent(isCodeSent);
+      setLoading(false);
+      return isCodeSent;
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error : new Error('Failed to send validation code');
+      if (errorMessage.message === 'Please wait before requesting another code') {
+        showError(errorMessage.message);
+      } else {
+        showError('Failed to send validation code');
+      }
+      setLoading(false);
+      return false;
     }
+  };
+  return {
+    sendVerificationCode,
+  };
 };

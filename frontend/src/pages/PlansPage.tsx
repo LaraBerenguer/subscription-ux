@@ -9,8 +9,8 @@ import '../styles/plansPage.css';
 import { useError } from '../hooks/useError';
 
 const PlansPage = () => {
-  const { products, selectedPrice} = useProductContext();
-  const {error, showError} = useError();
+  const { products, selectedPrice } = useProductContext();
+  const { error, showError } = useError();
   const { userId, isUserIdAvailable } = useEmailContext();
   const navigate = useNavigate();
 

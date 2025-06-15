@@ -2,7 +2,7 @@ import { API_URL, END_POINTS } from '../config';
 
 //get code
 export const getValidationCode = async (email: string): Promise<boolean> => {
-  try {    
+  try {
     const response = await fetch(`${API_URL}/${END_POINTS.email.sendCode}?email=${email}`, {
       method: 'GET',
       headers: {
@@ -17,7 +17,7 @@ export const getValidationCode = async (email: string): Promise<boolean> => {
 
     if (response.status === 429) {
       console.error('Rate limited: Please wait before requesting another code');
-      throw new Error(`Please wait before requesting another code`);
+      throw new Error('Please wait before requesting another code');
     }
 
     if (!response.ok) {

@@ -9,12 +9,12 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [loading, setLoading] = useState<boolean>(false);
   const [products, setProducts] = useState<ProductList | null>(null);
   const [selectedPrice, setSelectedPrice] = useState<string | null>(null);
-  const {getProducts} = useProductsActions({setLoading, setProducts});
-  const {error, showError, clearError} = useError();
+  const { getProducts } = useProductsActions({ setLoading, setProducts });
+  const { error, showError, clearError } = useError();
 
   useEffect(() => {
     getProducts();
-  }, []);
+  });
 
   const value = useMemo(() => ({
     getProducts,
@@ -26,7 +26,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
     products,
     selectedPrice,
     setSelectedPrice,
-  }), [loading, error, selectedPrice, products]);
+  }), [loading, error, selectedPrice, products, clearError, getProducts, showError]);
 
   return (
     <ProductContext.Provider value={value}>
