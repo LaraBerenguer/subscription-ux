@@ -1,6 +1,6 @@
 # Subscription UX
 
-This project includes a **frontend built with React** and a **backend with Node.js**, fully containerized using Docker and Docker Compose. Hope you like it!
+This project includes a **frontend built with React, TypeScript, and Vite**, and a **backend with Node.js**, fully containerized using Docker and Docker Compose. Hope you like it!
 
 ## 🚀 How to Run Locally
 
@@ -12,8 +12,8 @@ This project includes a **frontend built with React** and a **backend with Node.
 
 1. **🗂️ Unzip the Project**
 
-   Extract the `.zip` file into a folder you can easily access.
-   
+   Extract the `.zip` file into a folder you can easily access. For example:
+
    - **On Windows:**
      ```sh
      C:\Users\YourName\Documents\my-project
@@ -23,11 +23,18 @@ This project includes a **frontend built with React** and a **backend with Node.
      ~/Documents/my-project
      ```
 
-3. **🌐 (Optional If no Zip): Clone the repository and access the project's root folder**
+2. **🌐 (Optional) If you have no Zip: Clone the repository and access the project's root folder**
    ```sh
    git clone https://github.com/LaraBerenguer/subscription-ux
    cd subscription-ux
    ```
+
+3. **🔑 Set up .env configuration**
+   - Create a `.env` file in the frontend directory with this content:
+     ```env
+     VITE_API_URL=your_local_host/api
+     ```
+   - You can use [http://localhost:8080/](http://localhost:8080/) for this project.
 
 4. **🐳 Build and deploy the services (frontend and backend)**
    ```sh
