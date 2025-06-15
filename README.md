@@ -37,6 +37,7 @@ This project includes a **frontend built with React, TypeScript, and Vite**, and
    - You can use [http://localhost:8080/](http://localhost:8080/) for this project.
 
 4. **🐳 Build and deploy the services (frontend and backend)**
+
    Make sure your Docker Desktop or Docker service in Linux is up and running and then run:
    
    ```sh
